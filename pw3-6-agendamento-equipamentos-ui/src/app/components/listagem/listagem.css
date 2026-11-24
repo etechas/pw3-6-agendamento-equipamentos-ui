@@ -79,3 +79,21 @@ button.excluir {
   background: #e5484d;
   color: #fff;
 }
+
+a.novo {
+  background: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+a.editar {
+  background: #3b82f6;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}

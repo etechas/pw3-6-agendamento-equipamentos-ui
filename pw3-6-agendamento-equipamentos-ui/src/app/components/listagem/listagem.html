@@ -1,5 +1,6 @@
 <header class="topo">
   <h1>🔐 Agendamento de Armários</h1>
+  <a routerLink="/novo" class="novo">➕ Nova reserva</a>
 </header>
 
 <main class="conteudo">
@@ -34,6 +35,7 @@
             @if (r.ativo) {
               <button class="liberar" (click)="liberar(r)">⚡ Liberar</button>
             }
+            <a [routerLink]="['/editar', r.id]" class="editar">✏️ Editar</a>
             <button class="excluir" (click)="excluir(r)">🗑️ Excluir</button>
           </td>
         </tr>

@@ -1,10 +1,11 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { ReservaArmario } from '../../models/reserva-armario.model';
 import { ReservaArmarioService } from '../../services/reserva-armario.service';
 
 @Component({
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink],
   selector: 'app-listagem',
   styleUrl: './listagem.css',
   templateUrl: './listagem.html',
