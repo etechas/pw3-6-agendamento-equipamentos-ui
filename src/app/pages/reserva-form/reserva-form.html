@@ -1,0 +1,42 @@
+<app-container>
+  <div class="form-container">
+    <h1>{{ id ? 'Editar reserva' : 'Nova reserva' }}</h1>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()">
+      <mat-form-field appearance="outline">
+        <mat-label>Número do armário</mat-label>
+        <input matInput formControlName="numeroArmario" maxlength="20">
+        <mat-error>Informe o número do armário</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do aluno</mat-label>
+        <input matInput formControlName="nomeAluno">
+        @if (form.controls.nomeAluno.hasError('minlength')) {
+          <mat-error>Informe ao menos 3 caracteres</mat-error>
+        } @else {
+          <mat-error>Campo obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="datas">
+        <mat-form-field appearance="outline">
+          <mat-label>Início</mat-label>
+          <input matInput type="datetime-local" formControlName="dataInicio">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fim</mat-label>
+          <input matInput type="datetime-local" formControlName="dataFim">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="botoes">
+        <button mat-flat-button type="submit">SALVAR</button>
+        <a mat-stroked-button routerLink="/reservas">CANCELAR</a>
+      </div>
+    </form>
+  </div>
+</app-container>

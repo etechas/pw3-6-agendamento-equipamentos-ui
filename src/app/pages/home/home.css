@@ -1,0 +1,59 @@
+.mapa-container {
+  padding: 32px 0;
+}
+
+.mapa-container h2 {
+  color: #1D1B20;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.resumo {
+  color: #49454F;
+  margin-bottom: 20px;
+}
+
+.aviso {
+  color: #e63946;
+  margin: 0 0 16px;
+}
+
+.legenda {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  color: #49454F;
+}
+
+.legenda .cor {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.legenda .disponivel {
+  background: #0db6b5;
+}
+
+.legenda .ocupado {
+  background: #d5d5d5;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 20px 16px;
+  margin-bottom: 40px;
+}

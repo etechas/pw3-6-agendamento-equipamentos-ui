@@ -1,0 +1,55 @@
+<app-container>
+  <div class="reservas-container">
+    <div class="titulo">
+      <h1>Reservas</h1>
+      <a mat-flat-button routerLink="/reservas/nova">
+        <mat-icon>add</mat-icon> Nova reserva
+      </a>
+    </div>
+
+    <div class="table-container">
+      @if (reservas().length > 0) {
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Armário</th>
+              <th>Aluno</th>
+              <th>Início</th>
+              <th>Fim</th>
+              <th>Situação</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (r of reservas(); track r.id) {
+              <tr>
+                <td>{{ r.numeroArmario }}</td>
+                <td>{{ r.nomeAluno }}</td>
+                <td>{{ r.dataInicio | date:'dd/MM/yyyy HH:mm' }}</td>
+                <td>{{ r.dataFim | date:'dd/MM/yyyy HH:mm' }}</td>
+                <td>
+                  <span class="situacao" [class.ativa]="r.ativo">{{ r.ativo ? 'Ativa' : 'Encerrada' }}</span>
+                </td>
+                <td class="acoes">
+                  @if (r.ativo) {
+                    <a mat-icon-button [routerLink]="['/reservas', r.id, 'editar']" title="Editar">
+                      <mat-icon>edit</mat-icon>
+                    </a>
+                    <button mat-icon-button (click)="liberar(r)" title="Liberar armário">
+                      <mat-icon>lock_open</mat-icon>
+                    </button>
+                  }
+                  <button mat-icon-button (click)="excluir(r)" title="Excluir">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      } @else {
+        <h3>Nenhuma reserva cadastrada</h3>
+      }
+    </div>
+  </div>
+</app-container>

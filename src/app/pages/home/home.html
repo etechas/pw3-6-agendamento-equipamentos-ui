@@ -1,0 +1,38 @@
+<section class="homepage">
+  <app-banner titulo="Reserve seu armário" subtitulo="Escolha o período e veja quais armários estão livres"></app-banner>
+
+  <app-container>
+    <div class="mapa-container">
+      <h2>Mapa de armários</h2>
+
+      <div class="filtros">
+        <mat-form-field appearance="outline">
+          <mat-label>Início</mat-label>
+          <input matInput type="datetime-local" [value]="inicio()" (change)="alterarInicio($event)">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Fim</mat-label>
+          <input matInput type="datetime-local" [value]="fim()" (change)="alterarFim($event)">
+        </mat-form-field>
+
+        <span class="resumo">{{ livres() }} de {{ armarios.length }} livres no período</span>
+      </div>
+
+      @if (!periodoValido()) {
+        <p class="aviso">A data de fim deve ser posterior à data de início.</p>
+      }
+
+      <ul class="legenda">
+        <li><span class="cor disponivel"></span> Livre</li>
+        <li><span class="cor ocupado"></span> Ocupado</li>
+      </ul>
+
+      <div class="grade">
+        @for (n of armarios; track n) {
+          <app-armario [numero]="n" [disponivel]="livre(n)" (armarioClick)="reservar(n)"></app-armario>
+        }
+      </div>
+    </div>
+  </app-container>
+</section>

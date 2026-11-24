@@ -1,0 +1,59 @@
+figure {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 12px;
+}
+
+.armario {
+  height: 60px;
+  width: 48px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.armario.disponivel:hover,
+.armario.escolhido:hover {
+  transform: scale(1.15);
+}
+
+.armario.ocupado {
+  cursor: not-allowed;
+}
+
+.armario.readonly {
+  cursor: default;
+}
+
+.detalhe {
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ponto {
+  fill: #fff;
+}
+
+.disponivel {
+  fill: #0db6b5;
+}
+
+.ocupado {
+  fill: #d5d5d5;
+}
+
+.escolhido {
+  fill: #ff9800;
+}
+
+@media screen and (max-width: 720px) {
+  .armario {
+    height: 48px;
+    width: 38px;
+  }
+}

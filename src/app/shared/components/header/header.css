@@ -1,0 +1,33 @@
+.app-header .mat-toolbar {
+  background-color: black;
+  color: white;
+  padding: 0 56px;
+}
+
+.app-header .spacer {
+  flex: 1 1 auto;
+}
+
+.app-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.app-header .links-toolbar a.mat-mdc-button {
+  color: white;
+}
+
+.app-header .links-toolbar > * {
+  margin-left: 16px;
+}
+
+@media (max-width: 720px) {
+  .app-header .mat-toolbar {
+    padding: 0 16px;
+  }
+}
