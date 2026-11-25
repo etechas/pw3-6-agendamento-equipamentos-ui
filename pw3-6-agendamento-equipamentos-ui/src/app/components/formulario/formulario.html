@@ -1,0 +1,56 @@
+<header class="topo">
+  <h1>{{ id ? '✏️ Editar reserva' : '➕ Nova reserva' }}</h1>
+</header>
+
+<main class="conteudo">
+  @if (mensagem(); as m) {
+    <div class="alerta" [class.sucesso]="m.tipo === 'sucesso'" [class.erro]="m.tipo === 'erro'">
+      {{ m.tipo === 'sucesso' ? '✅' : '❌' }} {{ m.texto }}
+    </div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <label>
+      Número do armário
+      <input type="number" formControlName="numeroArmario" />
+    </label>
+    @if (numeroArmario.invalid && numeroArmario.touched) {
+      <small class="msg-erro">
+        @if (numeroArmario.errors?.['required']) { Informe o número do armário. }
+        @else if (numeroArmario.errors?.['min']) { O número do armário deve ser maior que zero. }
+      </small>
+    }
+
+    <label>
+      Nome do aluno
+      <input type="text" formControlName="nomeAluno" />
+    </label>
+    @if (nomeAluno.invalid && nomeAluno.touched) {
+      <small class="msg-erro">
+        @if (nomeAluno.errors?.['required']) { Informe o nome do aluno. }
+        @else if (nomeAluno.errors?.['maxlength']) { O nome pode ter no máximo 100 caracteres. }
+      </small>
+    }
+
+    <label>
+      Data de início
+      <input type="date" formControlName="dataInicio" />
+    </label>
+    @if (dataInicio.invalid && dataInicio.touched) {
+      <small class="msg-erro">Informe a data de início.</small>
+    }
+
+    <label>
+      Data de fim
+      <input type="date" formControlName="dataFim" />
+    </label>
+    @if (dataFim.invalid && dataFim.touched) {
+      <small class="msg-erro">Informe a data de fim.</small>
+    }
+
+    <div class="botoes">
+      <button type="submit" class="salvar" [disabled]="salvando()">💾 Salvar</button>
+      <a routerLink="/" class="cancelar">❌ Cancelar</a>
+    </div>
+  </form>
+</main>

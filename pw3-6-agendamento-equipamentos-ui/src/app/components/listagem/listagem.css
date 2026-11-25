@@ -1,0 +1,115 @@
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1f3a5f;
+  color: #fff;
+  padding: 12px 24px;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.conteudo {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+th,
+td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+th {
+  background: #f1f4f8;
+}
+
+.vazio {
+  text-align: center;
+  color: #777;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.ativa {
+  background: #d9f2e0;
+  color: #1b6b34;
+}
+
+.badge.encerrada {
+  background: #e6e6e6;
+  color: #555;
+}
+
+.acoes {
+  display: flex;
+  gap: 6px;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+button.liberar {
+  background: #f0b429;
+}
+
+button.excluir {
+  background: #e5484d;
+  color: #fff;
+}
+
+a.novo {
+  background: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+a.editar {
+  background: #3b82f6;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.alerta {
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.alerta.sucesso {
+  background: #d9f2e0;
+  color: #1b6b34;
+}
+
+.alerta.erro {
+  background: #fde2e2;
+  color: #a31515;
+}
