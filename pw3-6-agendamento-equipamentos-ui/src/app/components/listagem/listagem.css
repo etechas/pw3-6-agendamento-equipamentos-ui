@@ -97,3 +97,19 @@ a.editar {
   border-radius: 4px;
   font-size: 0.85rem;
 }
+
+.alerta {
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.alerta.sucesso {
+  background: #d9f2e0;
+  color: #1b6b34;
+}
+
+.alerta.erro {
+  background: #fde2e2;
+  color: #a31515;
+}

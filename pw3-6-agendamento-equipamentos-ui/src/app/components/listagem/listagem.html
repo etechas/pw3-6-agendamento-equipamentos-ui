@@ -4,6 +4,12 @@
 </header>
 
 <main class="conteudo">
+  @if (mensagem(); as m) {
+    <div class="alerta" [class.sucesso]="m.tipo === 'sucesso'" [class.erro]="m.tipo === 'erro'">
+      {{ m.tipo === 'sucesso' ? '✅' : '❌' }} {{ m.texto }}
+    </div>
+  }
+
   <table>
     <thead>
       <tr>

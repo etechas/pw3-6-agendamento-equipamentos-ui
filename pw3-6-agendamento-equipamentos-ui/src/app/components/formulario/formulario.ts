@@ -45,7 +45,7 @@ export class Formulario implements OnInit {
       this.id = Number(idRota);
       this.service.buscarPorId(this.id).subscribe({
         next: (reserva) => this.form.patchValue(reserva),
-        error: (err) => this.mostrarErro(err, 'Não foi possível carregar a reserva.'),
+        error: (err: Error) => this.mensagem.set({ tipo: 'erro', texto: err.message }),
       });
     }
   }
@@ -76,15 +76,10 @@ export class Formulario implements OnInit {
         this.mensagem.set({ tipo: 'sucesso', texto: 'Reserva salva com sucesso!' });
         setTimeout(() => this.router.navigate(['/']), 1200);
       },
-      error: (err) => {
+      error: (err: Error) => {
         this.salvando.set(false);
-        this.mostrarErro(err, 'Não foi possível salvar a reserva.');
+        this.mensagem.set({ tipo: 'erro', texto: err.message });
       },
     });
-  }
-
-  // Mostra a mensagem enviada pelo backend (400/409) ou uma mensagem padrão
-  private mostrarErro(err: { error?: { message?: string } }, padrao: string): void {
-    this.mensagem.set({ tipo: 'erro', texto: err.error?.message ?? padrao });
   }
 }
